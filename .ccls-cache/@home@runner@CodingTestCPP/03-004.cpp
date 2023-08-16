@@ -2,9 +2,6 @@
 using namespace std;
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(NULL);
-  cout.tie(NULL);
 
   int N, M;
   int index;
@@ -24,27 +21,23 @@ int main() {
     }
   }
 
-  cout << "print";
-  // for (index = 0; index < N * N; index++) {
-  //   cout << S[index] << " ";
-  // }
+  cout << "print\n";
 
   for (index = 0; index < M; index++) {
-    int arr[4];
-    for (int i = 0; i < 4; i++) {
-      cin >> arr[i];
-    }
-    cout << arr[3];
-
-    x1 = arr[0] - 1;
-    y1 = arr[1] - 1;
-    x2 = arr[2] - 1;
-    y2 = arr[3] - 1;
+    cin >> x1 >> y1 >> x2 >> y2;
+    x1 -= 1;
+    y1 -= 1;
+    x2 -= 1;
+    y2 -= 1;
 
     int sum = 0;
-    for (int i = 0; i < y2 - y1 + 1; i++) {
-      int temp = S[x2] - S[x1 - 1];
-      cout << temp;
+    for (; y1 <= y2; y1++) {
+      int temp = S[x2 * N + y1] - S[x1 * N + y1 - 1];
+      sum += temp;
+
+      cout << sum << "\n";
     }
+    cout << "========="
+         << "\n";
   }
 }
